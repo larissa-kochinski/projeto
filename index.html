@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 320px;
+    text-align: center;
+  }
+  .login-container h2 {
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 1.2px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  input[type="text"],
+  input[type="password"] {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.25s ease;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    box-shadow: 0 0 8px #a382f7;
+  }
+  button {
+    background: #a382f7;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #7a56d8;
+  }
+  .message {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .error {
+    color: #ff6b6b;
+  }
+  .success {
+    color: #7ef59e;
+  }
+</style>
+</head>
+<body>
+  <div class="login-container" role="main" aria-label="Área de Login">
+    <h2>Login</h2>
+    <form id="loginForm" aria-describedby="message">
+      <label for="username">Usuário</label>
+      <input type="text" id="username" name="username" aria-required="true" autocomplete="username" />
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" aria-required="true" autocomplete="current-password" />
+      <button type="submit">Entrar</button>
+      <div id="message" class="message" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <script>
+    (function() {
+      const loginForm = document.getElementById('loginForm');
+      const message = document.getElementById('message');
+
+      // Fixed credentials for demo
+      const VALID_USERNAME = 'user';
+      const VALID_PASSWORD = 'pass';
+
+      loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = loginForm.username.value.trim();
+        const password = loginForm.password.value;
+
+        if (!username || !password) {
+          message.textContent = 'Por favor, preencha ambos os campos.';
+          message.className = 'message error';
+          return;
+        }
+
+        if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+          message.textContent = 'Login realizado com sucesso! Bem-vindo.';
+          message.className = 'message success';
+          loginForm.reset();
+          // Here you can redirect or perform further actions for logged-in user
+        } else {
+          message.textContent = 'Usuário ou senha inválidos.';
+          message.className = 'message error';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
