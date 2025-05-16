@@ -3,132 +3,93 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Login</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-  }
-  .login-container {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 40px 50px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    width: 320px;
-    text-align: center;
-  }
-  .login-container h2 {
-    margin-bottom: 30px;
-    font-weight: 600;
-    font-size: 28px;
-    letter-spacing: 1.2px;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  label {
-    text-align: left;
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: 500;
-  }
-  input[type="text"],
-  input[type="password"] {
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    outline: none;
-    transition: box-shadow 0.25s ease;
-  }
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    box-shadow: 0 0 8px #a382f7;
-  }
-  button {
-    background: #a382f7;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  button:hover {
-    background: #7a56d8;
-  }
-  .message {
-    margin-top: 15px;
-    font-weight: 600;
-    font-size: 14px;
-  }
-  .error {
-    color: #ff6b6b;
-  }
-  .success {
-    color: #7ef59e;
-  }
-</style>
+<title>Venda e Aluguel de Filmes</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles_index.css')}}">
 </head>
 <body>
-  <div class="login-container" role="main" aria-label="Área de Login">
-    <h2>Login</h2>
-    <form id="loginForm" aria-describedby="message">
-      <label for="username">Usuário</label>
-      <input type="text" id="username" name="username" aria-required="true" autocomplete="username" />
-      <label for="password">Senha</label>
-      <input type="password" id="password" name="password" aria-required="true" autocomplete="current-password" />
-      <button type="submit">Entrar</button>
-      <div id="message" class="message" aria-live="polite"></div>
-    </form>
-  </div>
+  <header>
+    <h1>FilmesPlus</h1>
+    <nav aria-label="Menu principal">
+      <a href="#">Início</a>
+      <a href="#">Venda</a>
+      <a href="#">Aluguel</a>
+      <a href="#">Contato</a>
+    </nav>
+  </header>
 
-  <script>
-    (function() {
-      const loginForm = document.getElementById('loginForm');
-      const message = document.getElementById('message');
+  <main>
+    <section class="hero" aria-label="Introdução ao serviço de venda e aluguel de filmes">
+      <h2>Venda e Aluguel de Filmes ao Seu Alcance</h2>
+      <p>Encontre os melhores filmes para comprar ou alugar com qualidade e segurança. Experimente uma nova forma de assistir seus títulos favoritos!</p>
+    </section>
 
-      // Fixed credentials for demo
-      const VALID_USERNAME = 'user';
-      const VALID_PASSWORD = 'pass';
+    <section aria-label="Filmes para venda">
+      <h3>Filmes em Destaque para Venda</h3>
+      <div class="movie-grid">
+        <article class="movie-card" tabindex="0" aria-labelledby="title1" role="region">
+          <img src="https://m.media-amazon.com/images/I/51oD4EZbC6L._AC_SY679_.jpg" alt="Poster do filme O Poderoso Chefão" class="movie-poster" />
+          <div class="movie-info">
+            <h4 id="title1" class="movie-title">O Poderoso Chefão</h4>
+            <p class="movie-desc">Clássico do cinema gangster, dirigido por Francis Ford Coppola.</p>
+            <button class="btn" type="button" aria-label="Comprar O Poderoso Chefão">Comprar</button>
+          </div>
+        </article>
 
-      loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = loginForm.username.value.trim();
-        const password = loginForm.password.value;
+        <article class="movie-card" tabindex="0" aria-labelledby="title2" role="region">
+          <img src="https://m.media-amazon.com/images/I/71cdUPAk7YL._AC_SY679_.jpg" alt="Poster do filme Interestelar" class="movie-poster" />
+          <div class="movie-info">
+            <h4 id="title2" class="movie-title">Interestelar</h4>
+            <p class="movie-desc">Ficção científica épica sobre exploração espacial e amor familiar.</p>
+            <button class="btn" type="button" aria-label="Comprar Interestelar">Comprar</button>
+          </div>
+        </article>
 
-        if (!username || !password) {
-          message.textContent = 'Por favor, preencha ambos os campos.';
-          message.className = 'message error';
-          return;
-        }
+        <article class="movie-card" tabindex="0" aria-labelledby="title3" role="region">
+          <img src="https://m.media-amazon.com/images/I/81GtWWk+UrL._AC_SY679_.jpg" alt="Poster do filme A Origem" class="movie-poster" />
+          <div class="movie-info">
+            <h4 id="title3" class="movie-title">A Origem</h4>
+            <p class="movie-desc">Thriller psicológico sobre sonhos compartilhados, dirigido por Christopher Nolan.</p>
+            <button class="btn" type="button" aria-label="Comprar A Origem">Comprar</button>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-          message.textContent = 'Login realizado com sucesso! Bem-vindo.';
-          message.className = 'message success';
-          loginForm.reset();
-          // Here you can redirect or perform further actions for logged-in user
-        } else {
-          message.textContent = 'Usuário ou senha inválidos.';
-          message.className = 'message error';
-        }
-      });
-    })();
-  </script>
+    <section aria-label="Filmes para aluguel">
+      <h3>Filmes em Destaque para Aluguel</h3>
+      <div class="movie-grid">
+        <article class="movie-card" tabindex="0" aria-labelledby="title4" role="region">
+          <img src="https://m.media-amazon.com/images/I/71Q2nk3K8FL._AC_SY679_.jpg" alt="Poster do filme O Rei Leão" class="movie-poster" />
+          <div class="movie-info">
+            <h4 id="title4" class="movie-title">O Rei Leão</h4>
+            <p class="movie-desc">A emocionante aventura animada que conquistou gerações.</p>
+            <button class="btn" type="button" aria-label="Alugar O Rei Leão">Alugar</button>
+          </div>
+        </article>
+
+        <article class="movie-card" tabindex="0" aria-labelledby="title5" role="region">
+          <img src="https://m.media-amazon.com/images/I/71X6o7Obf6L._AC_SY679_.jpg" alt="Poster do filme Parasita" class="movie-poster" />
+          <div class="movie-info">
+            <h4 id="title5" class="movie-title">Parasita</h4>
+            <p class="movie-desc">Drama sul-coreano vencedor do Oscar que mistura suspense e crítica social.</p>
+            <button class="btn" type="button" aria-label="Alugar Parasita">Alugar</button>
+          </div>
+        </article>
+
+        <article class="movie-card" tabindex="0" aria-labelledby="title6" role="region">
+          <img src="https://m.media-amazon.com/images/I/71Ni7nu2VXL._AC_SY679_.jpg" alt="Poster do filme Infiltrado na Klan" class="movie-poster" />
+          <div class="movie-info">
+            <h4 id="title6" class="movie-title">Infiltrado na Klan</h4>
+            <p class="movie-desc">Filme baseado em fatos reais sobre infiltração em grupo neonazista.</p>
+            <button class="btn" type="button" aria-label="Alugar Infiltrado na Klan">Alugar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 FilmesPlus. Todos os direitos reservados.
+  </footer>
 </body>
 </html>
-

@@ -1,19 +1,31 @@
-from flask import Flask, request, render_template, redirect, flash, session
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-@app.route('/index')
+@app.route('/')
 def index():
-    return render_template('/index')
-@app.route('/login', methods = ['POST'])
+    return render_template('index.html')
+
+@app.route('/acesso', methods=['POST'])
+def acesso():
+    username = request.form['username']
+    password = request.form['password']
+   
+    if username == 'gabriel@' and password == '123':
+        return redirect('/servicos')
+    else:
+        print('Usuário não encontrado')
+        return "Usuário ou senha incorretos", 401
+
+
+@app.route('/login')
 def login():
-        login = request.form['username']
-        senha = request.form['password']
+    return render_template('login.html')
 
-        print(f'nome: {login}')
-        print(f'senha: {senha}')
-        return redirect('/login')
+@app.route('/servicos')
+def servicos():
+    return render_template('servicos.html')
 
-if __name__== '__main__':
-      app.run(debug=True)
-      
+
+if __name__ == '_main_':
+    app.run(debug=True)
