@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página de Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles_login.css')}}">
+</head>
+<body>
+  <div class="login-container" role="main" aria-label="Formulário de Login">
+    <h2>Login</h2>
+    <form id="loginForm" action = "/acesso" mothod = 'POST' novalidate>
+      <div class="error-message" id="errorMessage" role="alert"></div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="seu@email.com" required aria-required="true" autocomplete="username" />
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" placeholder="••••••••" required aria-required="true" autocomplete="current-password" />
+
+      <label class="show-password">
+        <input type="checkbox" id="togglePassword" aria-describedby="togglePasswordDesc" />
+        Mostrar senha
+      </label>
+      <span id="togglePasswordDesc" class="sr-only">Alternar visibilidade da senha</span>
+
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const loginForm = document.getElementById('loginForm');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const errorMessage = document.getElementById('errorMessage');
+      const togglePasswordCheckbox = document.getElementById('togglePassword');
+
+      togglePasswordCheckbox.addEventListener('change', () => {
+        passwordInput.type = togglePasswordCheckbox.checked ? 'text' : 'password';
+      });
+
+      loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorMessage.style.display = 'none';
+        errorMessage.textContent = '';
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (email === '' || password === '') {
+          errorMessage.textContent = 'Por favor, preencha todos os campos.';
+          errorMessage.style.display = 'block';
+          return;
+        }
+
+        // Simple email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          errorMessage.textContent = 'Digite um email válido.';
+          errorMessage.style.display = 'block';
+          return;
+        }
+
+        alert("Login enviado com sucesso!");
+        loginForm.reset();
+        togglePasswordCheckbox.checked = false;
+        passwordInput.type = 'password';
+      });
+    })();
+  </script>
+</body>
+</html>
+
