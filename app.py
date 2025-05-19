@@ -12,7 +12,7 @@ def acesso():
     password = request.form['password']
    
     if username == 'gabriel@' and password == '123':
-        return redirect('/servicos')
+        return redirect('/servico')
     else:
         print('Usuário não encontrado')
         return "Usuário ou senha incorretos", 401
@@ -28,4 +28,5 @@ def servicos():
 
 
 if __name__ == '_main_':
+    print('Iniciando o servidor Flask...')
     app.run(host='0.0.0.0', port=5000, debug=True)
