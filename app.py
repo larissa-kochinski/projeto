@@ -5,7 +5,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 USERS = {
-    "larissa@": "123"
+    "": ""
 }
 
 @app.route('/')
@@ -30,6 +30,34 @@ def acesso():
 @app.route('/servicos')
 def servicos():
     return render_template('servicos.html')
+
+# NOVO: rota para mostrar o formulário de cadastro
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html', error=None)
+
+# NOVO: rota para processar o formulário de cadastro
+@app.route('/cadastro', methods=['POST'])
+def cadastro_post():
+    username = request.form['username']
+    password = request.form['password']
+    confirm_password = request.form['confirm_password']
+
+    if not username or not password:
+        error = "Preencha todos os campos."
+        return render_template('cadastro.html', error=error)
+
+    if password != confirm_password:
+        error = "As senhas não conferem."
+        return render_template('cadastro.html', error=error)
+
+    if username in USERS:
+        error = "Usuário já cadastrado."
+        return render_template('cadastro.html', error=error)
+
+    USERS[username] = password
+    logging.info(f'Novo usuário cadastrado: {username}')
+    return redirect('/login')
 
 if __name__ == '__main__':
     app.run(debug=True)

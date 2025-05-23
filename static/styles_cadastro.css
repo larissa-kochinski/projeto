@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* tons de azul royal */
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+}
+.container {
+  background: #f0f6ff; /* azul clarinho quase branco */
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0, 46, 128, 0.3); /* sombra azulada */
+  width: 100%;
+  max-width: 420px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #173f7a; /* azul royal escuro */
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2c5282; /* azul médio */
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid #aac4e6; /* azul claro */
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  color: #0b2447; /* azul escuro para texto */
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #1e40af; /* azul royal vivo */
+  outline: none;
+  box-shadow: 0 0 6px #1e40afaa; /* sombra azul */
+}
+button {
+  background: #1e40af; /* azul royal */
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 0.5rem;
+  box-shadow: 0 6px 12px rgba(30, 64, 175, 0.6);
+}
+button:hover {
+  background: #153e7e; /* azul royal mais escuro */
+  box-shadow: 0 8px 16px rgba(21, 62, 126, 0.8);
+}
+/* Browser-native validation styling */
+input:invalid {
+  border-color: #c53030; /* vermelho para erro */
+  box-shadow: 0 0 5px #c53030aa;
+}
+input:valid {
+  border-color: #2f855a; /* verde para válido */
+  box-shadow: 0 0 5px #2f855aaa;
+}
+/* Required field label asterisk */
+label[for]::after {
+  content: " *";
+  color: #c53030; /* vermelho para obrigatório */
+}

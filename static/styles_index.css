@@ -180,3 +180,23 @@
       font-size: 1rem;
     }
   }
+
+  .register-button {
+    padding: 8px 16px;
+    background-color: transparent;
+    color: #1282f3; /* azul royal */
+    border: 2px solid #1282f3;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+  }
+  
+  .register-button:hover {
+    background-color: #1282f3;
+    color: #eee; /* cor clara para contraste no hover */
+    border-color: #1282f3;
+  }
+  

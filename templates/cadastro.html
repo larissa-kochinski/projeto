@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro de Usuário</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles_cadastro.css') }}">
+</head>
+<body>
+  <div class="container" role="main">
+    <h1>Cadastro de Usuário</h1>
+
+    {% if error %}
+      <div class="error-message" role="alert" style="color: #f44336; margin-bottom: 1rem; font-weight: bold;">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <form id="registrationForm" novalidate action="/cadastro" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Digite seu username" required pattern=".*\S.*" title="Por favor, insira seu username." />
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required title="Por favor, insira um e-mail válido." />
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" placeholder="Mínimo 4 caracteres" required minlength="4" title="A senha deve ter pelo menos 4 caracteres." />
+
+      <label for="confirm_password">Confirmar Senha</label>
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="Repita a senha" required minlength="4" title="Por favor, confirme a senha." />
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>
