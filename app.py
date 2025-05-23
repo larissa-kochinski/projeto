@@ -5,7 +5,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 USERS = {
-    "larissa@": "2007"
+    "larissa@": "123"
 }
 
 @app.route('/')
