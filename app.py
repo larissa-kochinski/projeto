@@ -6,8 +6,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['POST'])
-def login():
+@app.route('/acesso', methods=['POST'])
+def acesso():
     username = request.form['username']
     password = request.form['password']
     
@@ -18,9 +18,9 @@ def login():
         return "Usuário ou senha incorretos", 401
 
 
-@app.route('/pagina2')
-def pagina2():
-    return render_template('pagina2.html')
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 @app.route('/servicos')
 def servicos():
