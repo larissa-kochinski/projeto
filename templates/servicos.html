@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Serviços com Preço</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles_servicos.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles_servicos.css') }}">
 </head>
 <body>
   <header>
     <h1>Nossos Serviços</h1>
+    <!-- Link para retornar ao index -->
+    <a href="/" class="btn-return" aria-label="Voltar à página inicial">Voltar ao Início</a>
   </header>
+
   <main>
     <section class="service-list" aria-label="Lista de serviços disponíveis com preço e botão de compra">
       <article class="service-card" role="region" tabindex="0" aria-labelledby="service1-title">
@@ -40,5 +43,6 @@
       </article>
     </section>
   </main>
+
 </body>
 </html>

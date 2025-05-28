@@ -31,12 +31,10 @@ def acesso():
 def servicos():
     return render_template('servicos.html')
 
-# NOVO: rota para mostrar o formulário de cadastro
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html', error=None)
 
-# NOVO: rota para processar o formulário de cadastro
 @app.route('/cadastro', methods=['POST'])
 def cadastro_post():
     username = request.form['username']
