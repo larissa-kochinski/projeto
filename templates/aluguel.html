@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Loja de Filmes - Carrinho de Venda</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles_aluguel.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Loja de Filmes</h1>
+    <section class="produtos">
+        <h2>Filmes Disponíveis</h2>
+        <div class="produto" data-nome="O Senhor dos Anéis" data-preco="7.00">
+            <div class="produto-info">
+                <span class="produto-nome">O Senhor dos Anéis</span>
+                <span class="produto-preco">R$ 7,00</span>
+            </div>
+            <button class="adicionar-btn">Adicionar</button>
+        </div>
+        <div class="produto" data-nome="Matrix" data-preco="6.00">
+            <div class="produto-info">
+                <span class="produto-nome">Matrix</span>
+                <span class="produto-preco">R$ 6,00</span>
+            </div>
+            <button class="adicionar-btn">Adicionar</button>
+        </div>
+        <div class="produto" data-nome="Avengers: Endgame" data-preco="8.00">
+            <div class="produto-info">
+                <span class="produto-nome">Avengers: Endgame</span>
+                <span class="produto-preco">R$ 8,00</span>
+            </div>
+            <button class="adicionar-btn">Adicionar</button>
+        </div>
+        <div class="produto" data-nome="Inception" data-preco="7.50">
+            <div class="produto-info">
+                <span class="produto-nome">Inception</span>
+                <span class="produto-preco">R$ 7,50</span>
+            </div>
+            <button class="adicionar-btn">Adicionar</button>
+        </div>
+        <div class="produto" data-nome="Interestelar" data-preco="7.80">
+            <div class="produto-info">
+                <span class="produto-nome">Interestelar</span>
+                <span class="produto-preco">R$ 7,80</span>
+            </div>
+            <button class="adicionar-btn">Adicionar</button>
+        </div>
+    </section>
+    <section class="carrinho">
+        <h2>Seu Carrinho</h2>
+        <ul class="carrinho-lista" id="itensCarrinho"></ul>
+        <div class="total" id="total">Total: R$ 0,00</div>
+        <button class="finalizar-btn" id="btnFinalizar">Finalizar Compra</button>
+    </section>
+</div>
+
+<script>
+    // Seguimos o padrão de carrinho com itens e quantidade
+    const carrinho = {};
+
+    function formatarPreco(valor) {
+        return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function atualizarCarrinho() {
+        const ul = document.getElementById('itensCarrinho');
+        ul.innerHTML = '';
+        let total = 0;
+
+        for (const nome in carrinho) {
+            const item = carrinho[nome];
+            const li = document.createElement('li');
+
+            // Nome do filme e quantidade
+            const nomeItem = document.createElement('span');
+            nomeItem.textContent = nome;
+            nomeItem.className = 'carrinho-item-nome';
+
+            const quantidadeItem = document.createElement('span');
+            quantidadeItem.textContent = `x${item.quantidade}`;
+            quantidadeItem.className = 'carrinho-item-quantidade';
+
+            const precoItem = document.createElement('span');
+            precoItem.textContent = formatarPreco(item.preco * item.quantidade);
+            precoItem.className = 'carrinho-item-preco';
+
+            // Botão remover um do item
+            const btnRemover = document.createElement('button');
+            btnRemover.textContent = '✕';
+            btnRemover.className = 'remover-btn';
+            btnRemover.title = 'Remover um';
+            btnRemover.onclick = () => {
+                item.quantidade--;
+                if(item.quantidade <= 0) {
+                    delete carrinho[nome];
+                }
+                atualizarCarrinho();
+            };
+
+            li.appendChild(nomeItem);
+            li.appendChild(quantidadeItem);
+            li.appendChild(precoItem);
+            li.appendChild(btnRemover);
+
+            ul.appendChild(li);
+
+            total += item.preco * item.quantidade;
+        }
+
+        document.getElementById('total').textContent = `Total: ${formatarPreco(total)}`;
+        return total;
+    }
+
+    // Adicionar produto ao carrinho
+    document.querySelectorAll('.adicionar-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const produto = button.closest('.produto');
+            const nome = produto.dataset.nome;
+            const preco = parseFloat(produto.dataset.preco);
+
+            if(carrinho[nome]) {
+                carrinho[nome].quantidade++;
+            } else {
+                carrinho[nome] = { preco: preco, quantidade: 1 };
+            }
+            atualizarCarrinho();
+        });
+    });
+
+    // Finalizar compra
+    document.getElementById('btnFinalizar').addEventListener('click', () => {
+        const total = atualizarCarrinho();
+        if(total === 0) {
+            alert('Seu carrinho está vazio!');
+            return;
+        }
+        alert(`Compra finalizada!\nTotal: ${formatarPreco(total)}\nObrigado por comprar conosco!`);
+        // Reset carrinho
+        for (const nome in carrinho) {
+            delete carrinho[nome];
+        }
+        atualizarCarrinho();
+    });
+
+    // Inicialização
+    atualizarCarrinho();
+</script>
+</body>
+</html>

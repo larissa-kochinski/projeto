@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Filmes Disponíveis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_inicio.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Filmes Disponíveis para Aluguel</h1>
+    </header>
+
+    <div class="container">
+        <div class="filmes-container">
+            <!-- Card do Filme 1 -->
+            <div class="filme-card">
+                <div class="filme-imagem">
+                    <img src="https://via.placeholder.com/350x200/4A90E2/FFFFFF?text=O+Senhor+dos+Anéis" alt="O Senhor dos Anéis">
+                </div>
+                <div class="filme-info">
+                    <h3>O Senhor dos Anéis</h3>
+                    <p>Uma épica jornada pela Terra Média para destruir o Um Anel e salvar o mundo.</p>
+                    <p class="preco">R$ 7,00</p>
+                    <button onclick="adicionarAoCarrinho('O Senhor dos Anéis', 7)">Alugar</button>
+                </div>
+            </div>
+
+            <!-- Card do Filme 2 -->
+            <div class="filme-card">
+                <div class="filme-imagem">
+                    <img src="https://via.placeholder.com/350x200/4A90E2/FFFFFF?text=Matrix" alt="Matrix">
+                </div>
+                <div class="filme-info">
+                    <h3>Matrix</h3>
+                    <p>Uma das mais influentes histórias de ficção científica que questiona a realidade.</p>
+                    <p class="preco">R$ 6,00</p>
+                    <button onclick="adicionarAoCarrinho('Matrix', 6)">Alugar</button>
+                </div>
+            </div>
+
+            <!-- Card do Filme 3 -->
+            <div class="filme-card">
+                <div class="filme-imagem">
+                    <img src="https://via.placeholder.com/350x200/4A90E2/FFFFFF?text=Avengers+Endgame" alt="Avengers Endgame">
+                </div>
+                <div class="filme-info">
+                    <h3>Avengers: Endgame</h3>
+                    <p>Os heróis restantes da Terra se unem para derrotar Thanos e restaurar o equilíbrio no universo.</p>
+                    <p class="preco">R$ 8,00</p>
+                    <button onclick="adicionarAoCarrinho('Avengers: Endgame', 8)">Alugar</button>
+                </div>
+            </div>
+
+            <!-- Card do Filme 4 -->
+            <div class="filme-card">
+                <div class="filme-imagem">
+                    <img src="https://via.placeholder.com/350x200/4A90E2/FFFFFF?text=Inception" alt="Inception">
+                </div>
+                <div class="filme-info">
+                    <h3>Inception</h3>
+                    <p>Um ladrão especializado em roubo de segredos através de sonhos é oferecido uma chance de redenção.</p>
+                    <p class="preco">R$ 7,50</p>
+                    <button onclick="adicionarAoCarrinho('Inception', 7.5)">Alugar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para adicionar filmes ao carrinho
+        function adicionarAoCarrinho(nome, preco) {
+            // Aqui você pode adicionar lógica para adicionar o filme ao carrinho de compras.
+            alert(`Você adicionou "${nome}" ao carrinho!`);
+        }
+    </script>
+</body>
+</html>

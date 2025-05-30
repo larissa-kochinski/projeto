@@ -57,5 +57,13 @@ def cadastro_post():
     logging.info(f'Novo usuário cadastrado: {username}')
     return redirect('/servicos')
 
+@app.route('/aluguel')
+def aluguel():
+    return render_template('aluguel.html')
+
+@app.route('/inicio')
+def inicio():
+    return render_template('inicio.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

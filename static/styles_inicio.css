@@ -1,0 +1,99 @@
+
+/* style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Azul claro */
+    color: #333;
+}
+
+header {
+    background-color: #1e3a8a; /* Azul royal */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.filmes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.filme-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.filme-card:hover {
+    transform: translateY(-10px); /* Efeito de elevação ao passar o mouse */
+}
+
+.filme-imagem img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 5px solid #1e3a8a; /* Azul royal na parte inferior da imagem */
+}
+
+.filme-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.filme-info h3 {
+    font-size: 22px;
+    color: #1e3a8a; /* Azul royal */
+    margin: 0;
+}
+
+.filme-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+    height: 60px; /* Limitar altura do texto */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filme-info .preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e3a8a; /* Azul royal */
+}
+
+.filme-info button {
+    background-color: #1e3a8a; /* Azul royal */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.filme-info button:hover {
+    background-color: #2563eb; /* Azul mais intenso no hover */
+}
+
+.filme-info button:active {
+    background-color: #1d4ed8; /* Azul ainda mais intenso quando pressionado */
+}
