@@ -10,12 +10,12 @@
   <header>
     <h1>FilmesPlus</h1>
     <nav aria-label="Menu principal">
-      <a href="/inicio" class="inicio-button">Inicio</a>
+      <a href="/" class="inicio-button">Inicio</a>
       <a href="#">Venda</a>
       <a href="/aluguel" class="aluguel-button">Aluguel</a>
       <a href="#">Contato</a>
-      <a href="/login" class="login-button">Login</a>
-      <a href="/cadastro" class="register-button">Cadastro</a>
+      <a href="{{url_for('usuario.login')}}" class="login-button">Login</a>
+      <a href="{{url_for('usuario.cadastro')}}" class="register-button">Cadastro</a>
     </nav>
   </header>
   

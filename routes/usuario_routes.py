@@ -3,12 +3,16 @@ import logging
 usuario_bp = Blueprint('usuario', __name__)
 
 USERS = {
-    "": ""
+    "larissa": "1234"
 }
 
 @usuario_bp.route('/login')
 def login():
     return render_template('login.html', error=None)
+
+@usuario_bp.route('/servicos')
+def servicos():
+    return render_template(url_for('usuario.servicos'))
 
 @usuario_bp.route('/acesso', methods=['POST'])
 def acesso():
@@ -16,7 +20,7 @@ def acesso():
     password = request.form['password']
 
     if username in USERS and USERS[username] == password:
-        return redirect('/servicos')
+        return redirect(url_for('usuario.servicos'))
     else:
         logging.warning(f'Tentativa de login inválido: {username}')
         return render_template('login.html', error="Usuário ou senha incorretos")
@@ -26,7 +30,7 @@ def cadastro():
     return render_template('cadastro.html', error=None)
 
 @usuario_bp.route('/add_cadastro', methods=['POST'])
-def cadastro_post():
+def add_cadastro_post():
     username = request.form['username']
     password = request.form['password']
     confirm_password = request.form['confirm_password']
@@ -45,4 +49,4 @@ def cadastro_post():
 
     USERS[username] = password
     logging.info(f'Novo usuário cadastrado: {username}')
-    return redirect('/servicos')
+    return redirect(url_for('usuario.servicos'))
