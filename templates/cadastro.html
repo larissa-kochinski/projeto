@@ -16,7 +16,7 @@
       </div>
     {% endif %}
 
-    <form id="registrationForm" novalidate action="{{url_for('usuario.cadastro')}}" method="POST">
+    <form id="registrationForm" novalidate action="{{url_for('usuario.add_cadastro')}}" method="POST">
       <label for="username">Username</label>
       <input type="text" id="username" name="username" placeholder="Digite seu username" required pattern=".*\S.*" title="Por favor, insira seu username." />
 

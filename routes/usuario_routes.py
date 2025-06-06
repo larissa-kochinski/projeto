@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, session, url_for
 import logging
 usuario_bp = Blueprint('usuario', __name__)
 
 USERS = {
     "larissa": "1234"
+    
 }
 
 @usuario_bp.route('/login')
@@ -23,7 +24,10 @@ def acesso():
         return redirect(url_for('usuario.servicos'))
     else:
         logging.warning(f'Tentativa de login inválido: {username}')
+        session.pop('usuario', None)
+        print('usuario nao encontrado')
         return render_template('login.html', error="Usuário ou senha incorretos")
+        
 
 @usuario_bp.route('/cadastro')
 def cadastro():
