@@ -1,0 +1,107 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f8ff; /* Azul claro */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #1E3A8A; /* Azul royal */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #1E3A8A; /* Azul royal */
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px;
+    background-color: #1E3A8A; /* Azul royal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-return {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+button:hover {
+    background-color: #2563eb; /* Azul mais claro */
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1E3A8A; /* Azul royal */
+    color: white;
+    margin-top: 40px;
+}
+
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .btn-logout:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-logout:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+  }

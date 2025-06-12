@@ -94,6 +94,37 @@ header h1 {
     background-color: #2563eb; /* Azul mais intenso no hover */
 }
 
+.btn-return {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
 .filme-info button:active {
     background-color: #1d4ed8; /* Azul ainda mais intenso quando pressionado */
 }
+
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .btn-logout:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-logout:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+  }

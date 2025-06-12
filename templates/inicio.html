@@ -9,9 +9,12 @@
 <body>
     <header>
         <h1>Filmes Disponíveis para Aluguel</h1>
+        <a href="/" class="btn-return" aria-label="Voltar à página inicial">Voltar ao Menu Principal</a>
+        <a href="/" class="btn-logout" aria-label="Sair da conta">Sair da conta</a>
     </header>
 
     <div class="container">
+        <form method="POST" action="{{url_for('usuario.inicio')}}"></form>
         <div class="filmes-container">
             <!-- Card do Filme 1 -->
             <div class="filme-card">

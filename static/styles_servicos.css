@@ -113,7 +113,7 @@ main {
     font-size: 1.1rem;
   }
 }
-/* Estilo do botão de voltar ao início */
+
 .btn-return {
   display: inline-block;
   padding: 10px 20px;
@@ -130,6 +130,26 @@ main {
 }
 
 .btn-return:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+}
+
+.btn-logout {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.btn-logout:hover {
+  background-color: #0056b3;
+}
+
+.btn-logout:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
 }

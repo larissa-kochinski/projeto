@@ -68,3 +68,17 @@ def add_cadastro_post():
     save_users(users)
     logging.info(f'Novo usuário cadastrado: {username}')
     return redirect(url_for('usuario.servicos'))
+
+@usuario_bp.route('/inicio')
+def inicio():
+    return render_template('inicio.html')
+
+@usuario_bp.route('/contato')
+def contato():
+    return render_template('contato.html')
+
+
+@usuario_bp.route('/logout')
+def logout():
+    session.pop('usuario', None)
+    return redirect(url_for('/index'))
