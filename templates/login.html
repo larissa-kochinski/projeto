@@ -9,6 +9,11 @@
 <body>
   <div class="login-container">
     <h2>Login</h2>
+    {% if error %}
+      <div class="error-message" role="alert" style="color: #f44336; margin-bottom: 1rem; font-weight: bold;">
+        {{ error }}
+      </div>
+    {% endif %}
     <form method="POST" action="{{url_for('usuario.acesso')}}">
       <label for="username">Usuário</label>
       <input type="text" id="username" name="username" required />

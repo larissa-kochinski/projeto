@@ -36,9 +36,8 @@ def acesso():
         return redirect(url_for('usuario.servicos'))
     else:
         logging.warning(f'Tentativa de login inválido: {username}')
-        session.pop('usuario', None)
-        print('usuario nao encontrado')
-        return render_template('login.html', error="Usuário ou senha incorreto")
+        error = "Usuário ou senha incorreto"
+        return render_template('login.html', error=error)
         
 
 @usuario_bp.route('/cadastro')
@@ -81,4 +80,4 @@ def contato():
 @usuario_bp.route('/logout')
 def logout():
     session.pop('usuario', None)
-    return redirect(url_for('/index'))
+    return redirect(url_for('usuario.login'))
