@@ -24,7 +24,7 @@ def login():
 
 @usuario_bp.route('/servicos')
 def servicos():
-    return render_template('servicos.html')
+    return render_template('servicos.html', nomeuser= "Larissa")
 
 @usuario_bp.route('/acesso', methods=['POST'])
 def acesso():
@@ -33,6 +33,9 @@ def acesso():
 
     users = load_users()
     if username in users and users[username] == password:
+        session['usuario'] = username
+        token = '123456'
+        session['token'] = token
         return redirect(url_for('usuario.servicos'))
     else:
         logging.warning(f'Tentativa de login inválido: {username}')
@@ -81,3 +84,10 @@ def contato():
 def logout():
     session.pop('usuario', None)
     return redirect(url_for('usuario.login'))
+
+@usuario_bp.before_request
+def check_auth():
+    token = session.get('token')
+
+    if not token:
+        return redirect(url_for('usuario.login'))
