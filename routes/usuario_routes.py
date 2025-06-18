@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, session, url_fo
 import logging
 import json
 import os
+import secrets
 usuario_bp = Blueprint('usuario', __name__)
 
 USER_FILE = 'usuarios.json'
@@ -34,7 +35,7 @@ def acesso():
     users = load_users()
     if username in users and users[username] == password:
         session['usuario'] = username
-        token = '123456'
+        token = '1472'
         session['token'] = token
         return redirect(url_for('usuario.servicos'))
     else:
@@ -89,5 +90,12 @@ def logout():
 def check_auth():
     token = session.get('token')
 
-    if not token:
+    rotas_livres = ['sobre', 'contato', 'index', 'usuario.login', 'usuario.acesso', 'usuario.logout','acesso', 'cadastro']
+    #verifica as rotas livre e nao busca token de autenticação
+    if request.endpoint in rotas_livres:
+        return
+
+    if token in session:
+        return redirect(url_for('usuario.servicos'))
+    else:
         return redirect(url_for('usuario.login'))
