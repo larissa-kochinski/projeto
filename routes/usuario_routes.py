@@ -88,14 +88,21 @@ def logout():
 
 @usuario_bp.before_request
 def check_auth():
-    token = session.get('token')
+    rotas_livres = [
+        'usuario.login',
+        'usuario.logout',
+        'usuario.acesso',
+        'usuario.cadastro',
+        'usuario.inicio'
+    ]
 
-    rotas_livres = ['sobre', 'contato', 'index', 'usuario.login', 'usuario.acesso', 'usuario.logout','acesso', 'cadastro']
-    #verifica as rotas livre e nao busca token de autenticação
+    print("Endpoint acessado:", request.endpoint)  # Ajuda no debug
+
     if request.endpoint in rotas_livres:
         return
 
-    if token in session:
-        return redirect(url_for('usuario.servicos'))
-    else:
-        return redirect(url_for('usuario.login'))
+    token = session.get('token')
+    if token:
+        return  # Está autenticado
+
+    return redirect(url_for('usuario.login'))
