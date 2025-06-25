@@ -9,6 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles_perfil.css') }}">
 </head>
+    <header>
+        <a href="{{url_for('usuario.menu')}}" class="btn-return" aria-label="Voltar à página inicial">Voltar ao Menu Principal</a>
+        <a href="{{url_for('usuario.login')}}" class="btn-logout" aria-label="Sair da conta">Sair da conta</a>
+    </header>
 <body>
     <div class="min-h-screen">
         <!-- Header -->

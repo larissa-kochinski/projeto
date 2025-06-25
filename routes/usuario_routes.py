@@ -37,7 +37,7 @@ def acesso():
         session['usuario'] = username
         token = '1472'
         session['token'] = token
-        return redirect(url_for('usuario.servicos'))
+        return redirect(url_for('usuario.menu'))
     else:
         logging.warning(f'Tentativa de login inválido: {username}')
         error = "Usuário ou senha incorreto"
@@ -70,7 +70,7 @@ def add_cadastro_post():
     users[username] = password
     save_users(users)
     logging.info(f'Novo usuário cadastrado: {username}')
-    return redirect(url_for('usuario.servicos'))
+    return redirect(url_for('usuario.menu'))
 
 @usuario_bp.route('/inicio')
 def inicio():
@@ -86,7 +86,7 @@ def perfil():
 
 @usuario_bp.route('/menu')
 def menu():
-    return redirect(url_for('usuario.menu'))
+    return render_template('menu.html')
 
 @usuario_bp.route('/logout')
 def logout():
