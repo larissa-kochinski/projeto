@@ -80,6 +80,13 @@ def inicio():
 def contato():
     return render_template('contato.html')
 
+@usuario_bp.route('/perfil')
+def perfil():
+    return render_template('perfil.html', nomeuser= "Larissa")
+
+@usuario_bp.route('/menu')
+def menu():
+    return redirect(url_for('usuario.menu'))
 
 @usuario_bp.route('/logout')
 def logout():

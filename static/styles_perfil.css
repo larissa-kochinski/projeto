@@ -1,0 +1,53 @@
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --light-blue: #93c5fd;
+            --accent-blue: #2563eb;
+            --dark-blue: #172554;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .profile-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+        }
+        
+        .profile-pic {
+            border: 4px solid var(--light-blue);
+            box-shadow: 0 0 0 8px rgba(147, 197, 253, 0.2);
+        }
+        
+        .info-card {
+            border-left: 4px solid var(--accent-blue);
+        }
+        
+        .movie-card {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid var(--light-blue);
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.1);
+            border-bottom: 3px solid var(--accent-blue);
+        }
+        
+        .btn-edit {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+        }
+        
+        .btn-edit:hover {
+            background-color: var(--secondary-blue);
+            color: white;
+        }
+        
+        .tab-active {
+            border-bottom: 3px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
