@@ -8,11 +8,12 @@
 </head>
 <body>
 <div class="container">
-    <h1>Loja de Filmes</h1>
-    <section class="produtos">
-        <h2>Filmes Disponíveis</h2>
-        <div class="produto" data-nome="O Senhor dos Anéis" data-preco="7.00">
-            <div class="produto-info">
+    <form method="POST" action="{{url_for('compra.aluguel')}}">
+        <h1>Loja de Filmes</h1>
+        <section class="produtos">
+            <h2>Filmes Disponíveis</h2>
+            <div class="produto" data-nome="O Senhor dos Anéis" data-preco="7.00">
+                <div class="produto-info">
                 <span class="produto-nome">O Senhor dos Anéis</span>
                 <span class="produto-preco">R$ 7,00</span>
             </div>

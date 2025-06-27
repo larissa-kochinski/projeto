@@ -113,3 +113,4 @@ def check_auth():
         return  # Está autenticado
 
     return redirect(url_for('usuario.login'))
+

@@ -9,10 +9,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles_perfil.css') }}">
 </head>
-    <header>
-        <a href="{{url_for('usuario.menu')}}" class="btn-return" aria-label="Voltar à página inicial">Voltar ao Menu Principal</a>
-        <a href="{{url_for('usuario.login')}}" class="btn-logout" aria-label="Sair da conta">Sair da conta</a>
-    </header>
 <body>
     <div class="min-h-screen">
         <!-- Header -->
@@ -31,13 +27,19 @@
                                 <a href="#" class="tab-active font-medium pb-2 px-2 block">Minha Conta</a>
                             </li>
                             <li>
-                                <a href="#" class="text-blue-200 hover:text-white font-medium pb-2 px-2 block">Meus Aluguéis</a>
+                                <a href="{{url_for('carrinho.aluguel')}}" class="text-blue-200 hover:text-white font-medium pb-2 px-2 block">Meus Aluguéis</a>
                             </li>
                             <li>
                                 <a href="#" class="text-blue-200 hover:text-white font-medium pb-2 px-2 block">Configurações</a>
                             </li>
                             <li>
                                 <a href="#" class="text-blue-200 hover:text-white font-medium pb-2 px-2 block">Pagamentos</a>
+                            </li>
+                            <li>
+                                <a href="{{url_for('usuario.menu')}}" class="btn-return" aria-label="Voltar à página inicial">Voltar ao Menu Principal</a>
+                            </li>
+                            <li>
+                                <a href="{{url_for('usuario.login')}}" class="btn-logout" aria-label="Sair da conta">Sair da conta</a>
                             </li>
                         </ul>
                     </nav>
