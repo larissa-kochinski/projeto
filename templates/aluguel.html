@@ -7,6 +7,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles_aluguel.css') }}">
 </head>
 <body>
+     <header>
+        <h1>Fale Conosco</h1>
+        <a href="{{url_for('usuario.menu')}}" class="btn-return" aria-label="Voltar à página inicial">Voltar ao Menu Principal</a>
+        <a href="{{url_for('usuario.login')}}" class="btn-logout" aria-label="Sair da conta">Sair da conta</a>
+    </header>
 <div class="container">
     <form method="POST" action="{{url_for('compra.aluguel')}}">
         <h1>Loja de Filmes</h1>
